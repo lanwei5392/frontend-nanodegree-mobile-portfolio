@@ -7,10 +7,10 @@
     <meta name="author" content=" FILL ME IN ">
     <title>Cameron Pittman: Portfolio</title>
 
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
+<!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
 
-    <style type="text/css">
-    html {
+<style type="text/css">
+  html {
   font-size: 100%;
   overflow-y: scroll;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -74,7 +74,21 @@ footer span { float: right; font-style: italic; }
       ga('send', 'pageview');
     </script>
     <script async src="http://www.google-analytics.com/analytics.js"></script>
-    <script async src="js/perfmatters.js"></script>
+    
+    <script>
+    function logCRP() {
+    var t = window.performance.timing,
+    dcl = t.domContentLoadedEventStart - t.domLoading,
+    complete = t.domComplete - t.domLoading;
+    var stats = document.getElementById("crp-stats");
+    stats.textContent = 'DCL: ' + dcl + 'ms, onload: ' + complete + 'ms';
+    }
+
+    window.addEventListener("load", function(event) {
+    logCRP();
+    });
+    </script>
+
   </head>
 
   <body>
