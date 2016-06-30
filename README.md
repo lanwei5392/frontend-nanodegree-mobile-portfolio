@@ -53,3 +53,11 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+Improving parts - 
+
+main.js
+L-472, reduced the total of total of appending pizzas by replaced i++ by i=i+20
+Need rethink L-505
+L-527, replaced i++ by i=i+10
+
