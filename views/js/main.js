@@ -478,7 +478,7 @@ window.performance.mark("mark_start_generating"); // collect timing data
 // This for-loop actually creates and appends all of the pizzas when the page loads
 //Optimization: Reduced the number of affected elements(appending pizzas) by changing the loop variable from 200 to 100, and loop interval from 1 to 20.
 
-for (var i = 10; i < 100; i = i+20) {
+for (var i = 0; i < 100; i = i+20) {
   var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
@@ -523,7 +523,7 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
   }
 */
 
-// Optimization:  Set up phase as an array to avoid reforcing layout for style calculating each time in the loop.
+// Optimization:  Set up phase as an array to avoid forced reflow for style calculating each time in the loop.
   
     var items = document.getElementsByClassName('mover');
   

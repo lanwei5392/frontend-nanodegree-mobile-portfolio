@@ -19,15 +19,12 @@ The following optimizations are used to improve the pageSpeed.
  Optimizations made to views/js/main.js to achieve 60 FPS
  --------------------------------------------------------
 
- +In the updatePositions() function on line 519, the phase calculation 
- +results were placed into an array, which is then called by a for loop, 
- +so the calculation will not be performed each iteration.
- +
- +In the for loop on line 568, the max value of i was converted to the
- +value of the screen height multiplied by var row times var cols.
- +
- +All querySelector tags were converted to getElementById or 
- +getElementsByClassName.
- +
- +Calculations and variable declarations nested inside for loops were 
- +moved into local variables that are then called inside the for loop.
+In Line-481, to resuced the appended pizzas by reducing i to 100 from 200, and increasing interval to 20 from 1.
+In Line-482, replaced QuerySelect by getElementId.
+
+From Line-528 to Line-538, fixed forced reflow problem for background pizzas by moving the phase out of the loop, and defining a phase array. Reduced the total number of background pizzas.
+
+In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
+
+From Line-454 to Line-466, improved function changePizzaSizes() by defining container array outside the loop, and moving dx and newwidth calculation out of the loop. This has improved pizza size change time < 5ms.
+
