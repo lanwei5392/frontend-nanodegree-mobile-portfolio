@@ -1,25 +1,24 @@
------------------------
- +Running this Application
- +------------------------
- +
- +Download the GitHub repository and open index.html in the main directory
- +and pizza.html in the views directory to view the two pages optimized
- +for this project.  Alternately, you may visit the URL 
- +www.cowsaysgethyphy.com.
- +
- +----------------------------------------------------------------
- +Optimizations made to index.html to achieve PageSpeed score > 90
- +----------------------------------------------------------------
+---------------------------
+Running this Application
+---------------------------
 
- +Used inline CSS - Replaced previousely defined style by teh codes defined in style.css file.
- +Used inline JavaScript - Replaced the related codes by the coded defined in perfmatters.js.
+Open the url link for the gh-pages from the repository in github. https://lanwei5392.github.io/frontend-nanodegree-mobile-portfolio/
 
- +Repalced original Cam's Pizzeria by a simplified pizza.jpg that is newly loaded into /views/images folder
- 
- +--------------------------------------------------------
- +Optimizations made to views/js/main.js to achieve 60 FPS
- +--------------------------------------------------------
- +
+----------------------------------------------------------------
+Optimizations made to index.html to achieve PageSpeed score > 90
+---------------------------------------------------------------
+
+The pageSpeed for pizza landing page(index.html) has reached 96 for mobile and 97 for desktop. 
+
+The following optimizations are used to improve the pageSpeed.
+-Used inline CSS, which is to use the codes defiend in style.css to repplace the related style lines in index.html
+-Used inline JS, which is to use the codes defined in perfmatters.js to replace the related codes in index.html
+-Replaced Cam's pizzeria image by a compressed image which is newly loaded views/images/pizza.jpeg. 
+
+ --------------------------------------------------------
+ Optimizations made to views/js/main.js to achieve 60 FPS
+ --------------------------------------------------------
+
  +In the updatePositions() function on line 519, the phase calculation 
  +results were placed into an array, which is then called by a for loop, 
  +so the calculation will not be performed each iteration.
