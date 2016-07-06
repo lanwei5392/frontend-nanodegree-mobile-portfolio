@@ -1,12 +1,12 @@
----------------------------
+------------------------
 Running this Application
----------------------------
+------------------------
 
 Open the url link for the gh-pages from the repository in github. https://lanwei5392.github.io/frontend-nanodegree-mobile-portfolio/
 
-----------------------------------------------------------------
+-----------------------------------------------------------------
 Optimizations made to index.html to achieve PageSpeed score > 90
----------------------------------------------------------------
+-----------------------------------------------------------------
 
 The pageSpeed for pizza landing page(index.html) has reached 96 for mobile and 97 for desktop. 
 
@@ -27,4 +27,3 @@ From Line-528 to Line-538, fixed forced reflow problem for background pizzas by 
 In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
 
 From Line-454 to Line-466, improved function changePizzaSizes() by defining container array outside the loop, and moving dx and newwidth calculation out of the loop. This has improved pizza size change time < 5ms.
-
