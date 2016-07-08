@@ -18,7 +18,12 @@ The following optimizations are used to improve the pageSpeed.
  --------------------------------------------------------
  Optimizations made to views/js/main.js to achieve 60 FPS
  --------------------------------------------------------
+In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
 
+
+-----------------
+OLD optimization
+-----------------
 In Line-481, to resuced the appended pizzas by reducing i to 100 from 200, and increasing interval to 20 from 1.
 In Line-482, replaced QuerySelect by getElementId.
 
