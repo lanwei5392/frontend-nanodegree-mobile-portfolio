@@ -18,6 +18,8 @@ The following optimizations are used to improve the pageSpeed.
  --------------------------------------------------------
  Optimizations made to views/js/main.js to achieve 60 FPS
  --------------------------------------------------------
+/views/js/main.js
+Line-527, reduced background pizzas by changing i from 200 to 24. 
 In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
 
 
