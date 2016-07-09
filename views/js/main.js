@@ -501,6 +501,8 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+//Optimization: Moved phase calculation out of style loop, and set up a phase array to avoide calculating phase at each step.
+
   var items = document.getElementsByClassName('mover');
   var scrollTop = document.body.scrollTop / 1250;
   console.log('scrollTop', scrollTop);
@@ -511,6 +513,11 @@ function updatePositions() {
     phase = phaseArray.push(phase)
   };
   console.log('phaseArray after loop', phaseArray);
+
+for (var i = 0; i < items.length; i++) {
+    var phase = phaseArray[i%5];
+    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+  }
 
 /*
   var items = document.getElementsByClassName('mover');

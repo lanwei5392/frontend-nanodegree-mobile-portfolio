@@ -22,6 +22,8 @@ The following optimizations are used to improve the pageSpeed.
 Line-527, reduced background pizzas by changing i from 200 to 24. 
 In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
 
+Line-507 to Line-520, Moved phase calculation out of style loop, and set up a phase array to avoide calculating phase at each step.
+
 
 -----------------
 OLD optimization
