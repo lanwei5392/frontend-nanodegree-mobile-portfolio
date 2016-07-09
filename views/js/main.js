@@ -448,11 +448,11 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
-  function changePizzaSizes(size) {
-    for (var i = 0; i < document.getEntriesByName(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.getEntriesByName(".randomPizzaContainer")[i], size);
-      var newwidth = (document.getEntriesByName(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.getEntriesByName(".randomPizzaContainer")[i].style.width = newwidth;
+   function changePizzaSizes(size) {
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -466,6 +466,7 @@ var resizePizzas = function(size) {
 };
 
 window.performance.mark("mark_start_generating"); // collect timing data
+
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
@@ -526,7 +527,7 @@ for (var i = 0; i < items.length; i++) {
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 */
-  // User Timing API to the rescue again. Seriously, it's worth learning.
+ // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
   window.performance.mark("mark_end_frame");
   window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
