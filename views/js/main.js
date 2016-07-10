@@ -425,7 +425,9 @@ var resizePizzas = function(size) {
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
     var windowWidth = document.getElementById("randomPizzas").offsetWidth;
+    var windowDimensions = getWindowWidthAndHeight();
     var oldSize = oldWidth / windowWidth;
+    var mobileWidth = 425;
 
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
@@ -448,6 +450,20 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+
+    function changePizzaSizes(size) {
+      var allRandomPizzaContainers = document.getElementsByClassName("randomPizzaContainer");
+      var dx = determineDx(allRandomPizzaContainers[0], size);
+      var newwidth = (allRandomPizzaContainers[0].offsetWidth + dx) + 'px';
+
+      for (var i = 0; i < allRandomPizzaContainers.length; i++) {
+        allRandomPizzaContainers[i].style.width = newwidth;
+      }
+    }  
+
+ changePizzaSizes(size);
+
+/*
    function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
@@ -457,6 +473,7 @@ var resizePizzas = function(size) {
   }
 
   changePizzaSizes(size);
+*/
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -469,10 +486,11 @@ window.performance.mark("mark_start_generating"); // collect timing data
 
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
-for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
-  pizzasDiv.appendChild(pizzaElementGenerator(i));
-}
+//Optimization: Moved pizzaDiv declaration out of the loop.
+var pizzasDiv = document.getElementById("randomPizzas");
+  for (var i = 2; i < 100; i++) { 
+    pizzasDiv.appendChild(pizzaElementGenerator(i));
+  }
 
 // User Timing API again. These measurements tell you how long it took to generate the initial pizzas
 window.performance.mark("mark_end_generating");

@@ -18,11 +18,17 @@ The following optimizations are used to improve the pageSpeed.
  --------------------------------------------------------
  Optimizations made to views/js/main.js to achieve 60 FPS
  --------------------------------------------------------
-/views/js/main.js
-Line-527, reduced background pizzas by changing i from 200 to 24. 
-In multiple areas, replaced querySelector tags were converted to getElementById or getElementsByClassName.
 
-Line-507 to Line-520, Moved phase calculation out of style loop, and set up a phase array to avoide calculating phase at each step.
+1. To achieve 60 FPS for scroll pizza page - 
+
+Line-527, reduced the total of background pizzas by changing i from 200 to 24. 
+Line-507 to Line-520, resolved forced reflow by setting up a phase array out of the style loop to avoide calculating layout at each step in the loop. 
+Line-473, declared PizzaDiv out of the loop.
+In multiple areas, replaced querySelector tags by getElementById or getElementsByClassName.
+
+2. To achieve 60 FPS for sliding pizza size
+
+Line 452-462, resolved forced reflow by setting up allRandomPizzaContainers, dx and newwidth out of the loop to avoid recalculating layout at every step.
 
 
 -----------------
