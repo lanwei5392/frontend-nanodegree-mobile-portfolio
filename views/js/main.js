@@ -399,10 +399,12 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
   // Changes the value for the size of the pizza above the slider
+
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
@@ -417,17 +419,18 @@ var resizePizzas = function(size) {
       default:
         console.log("bug in changeSliderLabel");
     }
+
   }
 
   changeSliderLabel(size);
+    console.log('size after changeSliderLabel', size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
+
   function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
     var windowWidth = document.getElementById("randomPizzas").offsetWidth;
-    var windowDimensions = getWindowWidthAndHeight();
     var oldSize = oldWidth / windowWidth;
-    var mobileWidth = 425;
 
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
@@ -462,6 +465,7 @@ var resizePizzas = function(size) {
     }  
 
  changePizzaSizes(size);
+
 
 /*
    function changePizzaSizes(size) {
@@ -524,14 +528,11 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover');
   var scrollTop = document.body.scrollTop / 1250;
-  console.log('scrollTop', scrollTop);
   var phaseArray = [];
-  console.log('phaseArray before loop', phaseArray);
   for (var i = 0; i < 5; i++) {
     var phase = Math.sin(scrollTop + i%5);
     phase = phaseArray.push(phase)
   };
-  console.log('phaseArray after loop', phaseArray);
 
 for (var i = 0; i < items.length; i++) {
     var phase = phaseArray[i%5];
@@ -562,7 +563,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 24; i++) {
+  for (var i = 0; i < 48; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
