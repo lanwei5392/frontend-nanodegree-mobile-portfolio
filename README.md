@@ -29,3 +29,4 @@ In multiple areas, replaced querySelector tags by getElementById or getElementsB
 2. To achieve 60 FPS for sliding pizza size
 
 Line 452-462, resolved forced reflow by setting up allRandomPizzaContainers, dx and newwidth out of the loop to avoid recalculating layout at every step.
+Line-433 to Line-466, in the middle of changing pizza size and define all pizza size array.

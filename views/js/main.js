@@ -423,7 +423,6 @@ var resizePizzas = function(size) {
   }
 
   changeSliderLabel(size);
-    console.log('size after changeSliderLabel', size);
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
 
@@ -431,7 +430,45 @@ var resizePizzas = function(size) {
     var oldWidth = elem.offsetWidth;
     var windowWidth = document.getElementById("randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
+    var dx = (newSize - oldSize) * windowWidth;
 
+    return dx;
+  }
+  
+  // Iterates through pizza elements on the page and changes their widths
+  // Changed document selector to getElementsbyClassName to optimize the loop
+  //Store randomPizzaContainer in a global variable | save from looking up each iteration of the loop
+  var pizzaSizeChange = document.getElementsByClassName("randomPizzaContainer");
+  var pizzaChangeLength = pizzaSizeChange.length; 
+  function changePizzaSizes(size) {
+    var changedWidth; //defines variable used to update values for pizza slider
+
+    switch(size) { //check each case for the slider and return the assigned changedWidth value
+      case "1":
+        changedWidth = 25;
+        break;
+      case "2":
+        changedWidth = 33.3;
+        break;
+      case "3":
+        changedWidth = 50;
+        break;
+      default:
+        console.log("bug in sizeSwitcher");
+    }
+
+    for (var i = 0; i < pizzaChangeLength; i++) { //loop over each item contained in randomPizzaContainer and update its style.width property to a %
+    pizzaSizeChange[i].style.width = changedWidth + '%';
+
+    }
+  }
+
+  changePizzaSizes(size);
+ 
+
+
+
+/*
     // Changes the slider value to a percent width
     function sizeSwitcher (size) {
       switch(size) {
@@ -466,7 +503,7 @@ var resizePizzas = function(size) {
 
  changePizzaSizes(size);
 
-
+*/
 /*
    function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
